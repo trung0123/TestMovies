@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TestMovies</string>
+    <string name="menu_movie">Movie</string>
+    <string name="menu_tv">Tv</string>
+    <string name="menu_star">Star</string>
+    <string name="transition_profile">transition_profile</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

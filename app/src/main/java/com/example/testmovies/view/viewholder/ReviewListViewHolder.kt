@@ -21,19 +21,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.example.testmovies.extension
+package com.example.testmovies.view.viewholder
 
 import android.view.View
-import com.example.testmovies.models.Resource
-import com.example.testmovies.models.Status
-import org.jetbrains.anko.toast
+import com.example.testmovies.models.Review
+import com.skydoves.baserecyclerviewadapter.BaseViewHolder
+import kotlinx.android.synthetic.main.item_review.view.*
 
-fun View.bindResource(resource: Resource<Any>?, onSuccess: () -> Unit) {
-    if (resource != null) {
-        when (resource.status) {
-            Status.LOADING -> Unit
-            Status.SUCCESS -> onSuccess()
-            Status.ERROR -> this.context.toast(resource.errorEnvelope?.status_message.toString())
+class ReviewListViewHolder(val view: View) : BaseViewHolder(view) {
+
+    private lateinit var review: Review
+
+    override fun bindData(data: Any) {
+        if (data is Review) {
+            review = data
+            drawItem()
         }
     }
+
+    private fun drawItem() {
+        itemView.run {
+            item_review_title.text = review.author
+            item_review_content.text = review.content
+        }
+    }
+
+    override fun onClick(v: View?) {
+    }
+
+    override fun onLongClick(v: View?) = false
 }

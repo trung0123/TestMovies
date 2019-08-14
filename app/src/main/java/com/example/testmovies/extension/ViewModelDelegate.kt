@@ -30,13 +30,13 @@ import androidx.lifecycle.ViewModelProviders
 import kotlin.reflect.KClass
 
 class ViewModelDelegate<T : ViewModel>(
-  private val clazz: KClass<T>
+    private val clazz: KClass<T>
 ) {
 
-  fun createViewModel(
-    activity: FragmentActivity,
-    viewModelFactory: ViewModelProvider.Factory?
-  ): T {
-    return ViewModelProviders.of(activity, viewModelFactory).get(clazz.java)
-  }
+    fun createViewModel(
+        activity: FragmentActivity,
+        viewModelFactory: ViewModelProvider.Factory?
+    ): T {
+        return ViewModelProviders.of(activity, viewModelFactory).get(clazz.java)
+    }
 }

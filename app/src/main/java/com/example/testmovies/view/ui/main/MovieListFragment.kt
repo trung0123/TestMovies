@@ -16,6 +16,7 @@ import com.example.testmovies.extension.vm
 import com.example.testmovies.models.Status
 import com.example.testmovies.models.entity.Movie
 import com.example.testmovies.view.adapter.MovieListAdapter
+import com.example.testmovies.view.ui.details.movie.MovieDetailActivity
 import com.example.testmovies.view.viewholder.MovieListViewHolder
 import com.skydoves.baserecyclerviewadapter.RecyclerViewPaginator
 import dagger.android.support.AndroidSupportInjection
@@ -71,6 +72,6 @@ class MovieListFragment : Fragment(), MovieListViewHolder.Delegate {
     }
 
     override fun onItemClick(movie: Movie) {
-
+        MovieDetailActivity.startActivityModel(context, movie)
     }
 }

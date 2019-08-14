@@ -21,19 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.example.testmovies.extension
+package com.example.testmovies.view.adapter
 
 import android.view.View
+import com.example.testmovies.R
 import com.example.testmovies.models.Resource
-import com.example.testmovies.models.Status
-import org.jetbrains.anko.toast
+import com.example.testmovies.models.Review
+import com.example.testmovies.view.viewholder.ReviewListViewHolder
+import com.skydoves.baserecyclerviewadapter.BaseAdapter
+import com.skydoves.baserecyclerviewadapter.BaseViewHolder
+import com.skydoves.baserecyclerviewadapter.SectionRow
 
-fun View.bindResource(resource: Resource<Any>?, onSuccess: () -> Unit) {
-    if (resource != null) {
-        when (resource.status) {
-            Status.LOADING -> Unit
-            Status.SUCCESS -> onSuccess()
-            Status.ERROR -> this.context.toast(resource.errorEnvelope?.status_message.toString())
-        }
+class ReviewListAdapter : BaseAdapter() {
+
+  init {
+    addSection(ArrayList<Review>())
+  }
+
+  fun addReviewList(resource: Resource<List<Review>>) {
+    resource.data?.let {
+      sections()[0].addAll(it)
     }
+    notifyDataSetChanged()
+  }
+
+  override fun layout(sectionRow: SectionRow): Int {
+    return R.layout.item_review
+  }
+
+  override fun viewHolder(layout: Int, view: View): BaseViewHolder {
+    return ReviewListViewHolder(view)
+  }
 }

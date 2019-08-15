@@ -16,6 +16,7 @@ import com.example.testmovies.extension.vm
 import com.example.testmovies.models.Status
 import com.example.testmovies.models.entity.Tv
 import com.example.testmovies.view.adapter.TvListAdapter
+import com.example.testmovies.view.ui.details.tv.TvDetailActivity
 import com.example.testmovies.view.viewholder.TvListViewHolder
 import com.skydoves.baserecyclerviewadapter.RecyclerViewPaginator
 import dagger.android.support.AndroidSupportInjection
@@ -70,6 +71,6 @@ class TvListFragment : Fragment(), TvListViewHolder.Delegate {
     }
 
     override fun onItemClick(tv: Tv) {
-
+        TvDetailActivity.startActivityModel(context, tv)
     }
 }

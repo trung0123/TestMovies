@@ -16,6 +16,7 @@ import com.example.testmovies.extension.vm
 import com.example.testmovies.models.Status
 import com.example.testmovies.models.entity.Person
 import com.example.testmovies.view.adapter.PeopleAdapter
+import com.example.testmovies.view.ui.details.person.PersonDetailActivity
 import com.example.testmovies.view.viewholder.PeopleViewHolder
 import com.skydoves.baserecyclerviewadapter.RecyclerViewPaginator
 import dagger.android.support.AndroidSupportInjection
@@ -68,5 +69,6 @@ class PersonListFragment : Fragment(), PeopleViewHolder.Delegate {
     }
 
     override fun onItemClick(person: Person, view: View) {
+        PersonDetailActivity.startActivity(activity, person, view)
     }
 }

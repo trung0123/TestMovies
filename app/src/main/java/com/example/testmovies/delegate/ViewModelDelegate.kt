@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.example.testmovies.extension
+package com.example.testmovies.delegate
 
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel

@@ -1,6 +1,8 @@
 package com.example.testmovies.di
 
 import com.example.testmovies.view.ui.details.movie.MovieDetailActivity
+import com.example.testmovies.view.ui.details.person.PersonDetailActivity
+import com.example.testmovies.view.ui.details.tv.TvDetailActivity
 import com.example.testmovies.view.ui.main.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -13,4 +15,10 @@ abstract class ActivityModule {
 
     @ContributesAndroidInjector
     internal abstract fun contributeMovieDetailActivity(): MovieDetailActivity
+
+    @ContributesAndroidInjector
+    internal abstract fun contributeTvDetailActivity(): TvDetailActivity
+
+    @ContributesAndroidInjector
+    internal abstract fun contributePersonDetailActivity(): PersonDetailActivity
 }

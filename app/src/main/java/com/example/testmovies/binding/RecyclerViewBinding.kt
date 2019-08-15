@@ -26,13 +26,14 @@ package com.example.testmovies.binding
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testmovies.extension.bindResource
+import com.example.testmovies.extension.visible
 import com.example.testmovies.models.Resource
+import com.example.testmovies.models.Review
+import com.example.testmovies.models.Video
 import com.example.testmovies.models.entity.Movie
 import com.example.testmovies.models.entity.Person
 import com.example.testmovies.models.entity.Tv
-import com.example.testmovies.view.adapter.MovieListAdapter
-import com.example.testmovies.view.adapter.PeopleAdapter
-import com.example.testmovies.view.adapter.TvListAdapter
+import com.example.testmovies.view.adapter.*
 
 @BindingAdapter("adapterMovieList")
 fun bindAdapterMovieList(view: RecyclerView, resource: Resource<List<Movie>>?) {
@@ -46,46 +47,46 @@ fun bindAdapterMovieList(view: RecyclerView, resource: Resource<List<Movie>>?) {
 
 @BindingAdapter("adapterPersonList")
 fun bindAdapterPersonList(view: RecyclerView, resource: Resource<List<Person>>?) {
-  view.bindResource(resource) {
-    if (resource != null) {
-      val adapter = view.adapter as? PeopleAdapter
-      adapter?.addPeople(resource)
+    view.bindResource(resource) {
+        if (resource != null) {
+            val adapter = view.adapter as? PeopleAdapter
+            adapter?.addPeople(resource)
+        }
     }
-  }
 }
 
 @BindingAdapter("adapterTvList")
 fun bindAdapterTvList(view: RecyclerView, resource: Resource<List<Tv>>?) {
-  view.bindResource(resource) {
-    if (resource != null) {
-      val adapter = view.adapter as? TvListAdapter
-      adapter?.addTvList(resource)
+    view.bindResource(resource) {
+        if (resource != null) {
+            val adapter = view.adapter as? TvListAdapter
+            adapter?.addTvList(resource)
+        }
     }
-  }
 }
 
-//@BindingAdapter("adapterVideoList")
-//fun bindAdapterVideoList(view: RecyclerView, resource: Resource<List<Video>>?) {
-//  view.bindResource(resource) {
-//    if (resource != null) {
-//      val adapter = view.adapter as? VideoListAdapter
-//      adapter?.addVideoList(resource)
-//      if (resource.data?.isNotEmpty()!!) {
-//        view.visible()
-//      }
-//    }
-//  }
-//}
-//
-//@BindingAdapter("adapterReviewList")
-//fun bindAdapterReviewList(view: RecyclerView, resource: Resource<List<Review>>?) {
-//  view.bindResource(resource) {
-//    if (resource != null) {
-//      val adapter = view.adapter as? ReviewListAdapter
-//      adapter?.addReviewList(resource)
-//      if (resource.data?.isNotEmpty()!!) {
-//        view.visible()
-//      }
-//    }
-//  }
-//}
+@BindingAdapter("adapterVideoList")
+fun bindAdapterVideoList(view: RecyclerView, resource: Resource<List<Video>>?) {
+    view.bindResource(resource) {
+        if (resource != null) {
+            val adapter = view.adapter as? VideoListAdapter
+            adapter?.addVideoList(resource)
+            if (resource.data?.isNotEmpty()!!) {
+                view.visible()
+            }
+        }
+    }
+}
+
+@BindingAdapter("adapterReviewList")
+fun bindAdapterReviewList(view: RecyclerView, resource: Resource<List<Review>>?) {
+    view.bindResource(resource) {
+        if (resource != null) {
+            val adapter = view.adapter as? ReviewListAdapter
+            adapter?.addReviewList(resource)
+            if (resource.data?.isNotEmpty()!!) {
+                view.visible()
+            }
+        }
+    }
+}

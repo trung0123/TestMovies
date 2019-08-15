@@ -31,6 +31,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.testmovies.delegate.ActivityBindingProperty
+import com.example.testmovies.delegate.ViewModelDelegate
 import kotlin.reflect.KClass
 
 fun <T : ViewModel> Fragment.vm(factory: ViewModelProvider.Factory, model: KClass<T>): T {
@@ -43,7 +44,11 @@ fun <T : ViewModel> FragmentActivity.vm(factory: ViewModelProvider.Factory, mode
 
 fun <T : ViewDataBinding> FragmentActivity.activityBinding(@LayoutRes resId: Int) = ActivityBindingProperty<T>(resId)
 
-fun <T : ViewModel> FragmentActivity.vmDelegate(clazz: KClass<T>) = lazy { ViewModelDelegate(clazz) }
+fun <T : ViewModel> FragmentActivity.vmDelegate(clazz: KClass<T>) = lazy {
+    ViewModelDelegate(
+        clazz
+    )
+}
 
 fun <T : ViewModel> FragmentActivity.viewModel(
     viewModelDelegate: ViewModelDelegate<T>,
